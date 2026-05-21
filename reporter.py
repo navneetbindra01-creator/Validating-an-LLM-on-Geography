@@ -222,7 +222,10 @@ _SCORE_TIPS = {
         f"Weighted composite: cosine x{config.WEIGHTS['cosine']:.0%} + "
         f"semantic x{config.WEIGHTS['semantic']:.0%} + "
         f"keyword x{config.WEIGHTS['keyword']:.0%}. "
-        f"A question passes when composite >= {config.PASS_SCORE}."
+        f"Standard pass threshold: {config.PASS_SCORE}. "
+        f"Relaxed threshold ({config.PASS_SCORE_SHORT}) applies when the response "
+        f"is fewer than 8 words and names at least one correct keyword — this "
+        f"prevents penalising concise but correct answers like 'London' or 'Ben Nevis'."
     ),
 }
 
@@ -266,9 +269,17 @@ def _result_card(r: QuestionResult) -> str:
     score_map = {v.name: v.score for v in r.validations}
     pills = " ".join(_score_pill(n, score_map.get(n, 0.0)) for n in ("cosine", "semantic", "keyword"))
     comp_tip = html.escape(_SCORE_TIPS["composite"])
+    is_short_threshold = r.pass_threshold == config.PASS_SCORE_SHORT
+    threshold_label = (
+        f" / threshold {r.pass_threshold} (short response)"
+        if is_short_threshold
+        else f" / threshold {r.pass_threshold}"
+    )
     comp_pill = (f'<span class="score-pill composite">'
                  f'<span class="sname">composite</span>'
-                 f'<span class="sval">{r.composite_score:.3f}</span>'
+                 f'<span class="sval">{r.composite_score:.3f}'
+                 f'<span style="font-weight:400;opacity:.75;font-size:.78rem">{html.escape(threshold_label)}</span>'
+                 f'</span>'
                  f'<span class="tip">{comp_tip}</span></span>')
 
     error_html = (f'<div class="error-box">{html.escape(r.error)}</div>' if r.error else "")
@@ -378,7 +389,8 @@ def save_html(results: list[QuestionResult], out_dir: str = config.REPORTS_DIR) 
       <div class="method-card composite">
         <h3>Composite Score</h3>
         <p>A weighted average of the three scores above. A question is marked <strong>PASS</strong> when its composite score meets or exceeds the pass threshold. Hover over any score pill in the results below to see its description inline.</p>
-        <p class="threshold">Pass threshold: {config.PASS_SCORE}</p>
+        <p>When Grok replies with a very short answer (fewer than 8 words) that names at least one correct keyword, a <strong>relaxed threshold of {config.PASS_SCORE_SHORT}</strong> is applied instead of {config.PASS_SCORE}. This prevents penalising concise-but-correct answers like "London" or "Ben Nevis". Wrong short answers are unaffected because their keyword score is 0.</p>
+        <p class="threshold">Standard threshold: {config.PASS_SCORE} &nbsp;|&nbsp; Short-response threshold: {config.PASS_SCORE_SHORT}</p>
       </div>
     </div>
   </details>

@@ -34,6 +34,7 @@ class QuestionResult:
     composite_score: float
     passed: bool
     error: str = ""
+    pass_threshold: float = config.PASS_SCORE
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -43,6 +44,7 @@ class QuestionResult:
             "expected": self.expected,
             "response": self.response,
             "composite_score": self.composite_score,
+            "pass_threshold": self.pass_threshold,
             "passed": self.passed,
             "error": self.error,
             "validations": [
@@ -109,6 +111,7 @@ def _process_item(item: dict) -> QuestionResult:
         composite_score=composite,
         passed=composite >= pass_threshold and not error,
         error=error,
+        pass_threshold=pass_threshold,
     )
 
 

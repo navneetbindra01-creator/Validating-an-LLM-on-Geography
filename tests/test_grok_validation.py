@@ -49,8 +49,8 @@ def test_one_word_answer_passes():
     )
     assert result.passed, (
         f"Expected PASS but got FAIL\n"
-        f"  Grok response : {result.response!r}\n"
-        f"  Composite score: {result.composite_score}\n"
+        f"  Grok response  : {result.response!r}\n"
+        f"  Composite score: {result.composite_score:.3f} (threshold: {result.pass_threshold})\n"
         f"  Validator scores: "
         + ", ".join(f"{v.name}={v.score:.3f}" for v in result.validations)
     )
@@ -82,8 +82,8 @@ def test_two_word_answer_passes():
     )
     assert result.passed, (
         f"Expected PASS but got FAIL\n"
-        f"  Grok response : {result.response!r}\n"
-        f"  Composite score: {result.composite_score}\n"
+        f"  Grok response  : {result.response!r}\n"
+        f"  Composite score: {result.composite_score:.3f} (threshold: {result.pass_threshold})\n"
         f"  Validator scores: "
         + ", ".join(f"{v.name}={v.score:.3f}" for v in result.validations)
     )
