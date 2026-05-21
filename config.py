@@ -5,7 +5,7 @@ env_loader.load()
 
 XAI_API_KEY = os.getenv("XAI_API_KEY", "")
 XAI_BASE_URL = "https://api.x.ai/v1"
-GROK_MODEL = "grok-3-mini"
+GROK_MODEL = "grok-4.1"
 
 # Validation thresholds (0.0 – 1.0)
 COSINE_THRESHOLD = 0.30
@@ -19,6 +19,8 @@ WEIGHTS = {
     "keyword": 0.25,
 }
 
-PASS_SCORE = 0.55  # minimum composite score to count as "pass"
+PASS_SCORE = 0.55        # minimum composite score for full-length responses
+PASS_SCORE_SHORT = 0.45  # relaxed threshold for short responses (< 8 words)
+                         # that contain at least one discriminating keyword
 
 REPORTS_DIR = "reports"

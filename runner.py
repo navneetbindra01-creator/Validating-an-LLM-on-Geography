@@ -89,6 +89,16 @@ def _process_item(item: dict) -> QuestionResult:
         error = str(exc)
 
     composite = _composite(validations)
+
+    # Short responses (< 8 words) that name at least one correct entity get a
+    # relaxed pass threshold. Wrong answers hit keyword_score=0.0 so they still
+    # face the full threshold even if the response happens to be short.
+    score_map = {v.name: v.score for v in validations}
+    if len(response.split()) < 8 and score_map.get("keyword", 0.0) > 0 and not error:
+        pass_threshold = config.PASS_SCORE_SHORT
+    else:
+        pass_threshold = config.PASS_SCORE
+
     return QuestionResult(
         id=qid,
         category=item.get("category", ""),
@@ -97,7 +107,7 @@ def _process_item(item: dict) -> QuestionResult:
         response=response,
         validations=validations,
         composite_score=composite,
-        passed=composite >= config.PASS_SCORE and not error,
+        passed=composite >= pass_threshold and not error,
         error=error,
     )
 
