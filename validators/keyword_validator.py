@@ -18,7 +18,13 @@ class KeywordValidator(BaseValidator):
             keywords = [w for w in expected.lower().split() if len(w) > 4]
 
         response_lower = response.lower()
-        hits = [kw for kw in keywords if kw.lower() in response_lower]
+        # Strip commas when checking numbers so "8849" matches "8,849 metres"
+        response_no_commas = response_lower.replace(",", "")
+        hits = [
+            kw for kw in keywords
+            if kw.lower() in response_lower
+            or kw.lower().replace(",", "") in response_no_commas
+        ]
         score = len(hits) / len(keywords) if keywords else 0.0
 
         # For short responses, require only 1 keyword hit rather than the full
@@ -30,7 +36,11 @@ class KeywordValidator(BaseValidator):
             effective_threshold = config.KEYWORD_THRESHOLD
 
         passed = score >= effective_threshold
-        missed = [kw for kw in keywords if kw.lower() not in response_lower]
+        missed = [
+            kw for kw in keywords
+            if kw.lower() not in response_lower
+            and kw.lower().replace(",", "") not in response_no_commas
+        ]
         detail = f"Keywords found {len(hits)}/{len(keywords)} (threshold {effective_threshold:.2f})."
         if missed:
             detail += f" Missing: {', '.join(missed)}"

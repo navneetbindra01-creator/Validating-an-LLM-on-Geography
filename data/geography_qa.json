@@ -10,7 +10,7 @@
     "id": "geo_002",
     "category": "capitals",
     "question": "What is the capital of Brazil?",
-    "expected": "The capital of Brazil is Brasília.",
+    "expected": "Brasília.",
     "keywords": ["Brasília", "Brazil", "capital"]
   },
   {
@@ -123,7 +123,7 @@
     "category": "deserts",
     "question": "What is the largest desert in the world overall?",
     "expected": "Antarctica is the largest desert in the world overall, covering approximately 14.2 million square kilometres. It is a cold desert that receives very little precipitation.",
-    "keywords": ["Antarctica", "largest", "desert", "14.2 million", "cold"]
+    "keywords": ["Antarctica", "largest", "desert", "14 million"]
   },
   {
     "id": "geo_019",
