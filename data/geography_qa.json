@@ -1,0 +1,142 @@
+[
+  {
+    "id": "geo_001",
+    "category": "capitals",
+    "question": "What is the capital city of Australia?",
+    "expected": "The capital city of Australia is Canberra.",
+    "keywords": ["Canberra", "Australia", "capital"]
+  },
+  {
+    "id": "geo_002",
+    "category": "capitals",
+    "question": "What is the capital of Brazil?",
+    "expected": "The capital of Brazil is Brasília.",
+    "keywords": ["Brasília", "Brazil", "capital"]
+  },
+  {
+    "id": "geo_003",
+    "category": "capitals",
+    "question": "What is the capital of Canada?",
+    "expected": "The capital of Canada is Ottawa.",
+    "keywords": ["Ottawa", "Canada", "capital"]
+  },
+  {
+    "id": "geo_004",
+    "category": "capitals",
+    "question": "What is the capital of Japan?",
+    "expected": "The capital of Japan is Tokyo.",
+    "keywords": ["Tokyo", "Japan", "capital"]
+  },
+  {
+    "id": "geo_005",
+    "category": "capitals",
+    "question": "What is the capital of South Africa?",
+    "expected": "South Africa has three capitals: Pretoria (executive), Cape Town (legislative), and Bloemfontein (judicial).",
+    "keywords": ["Pretoria", "Cape Town", "Bloemfontein", "South Africa"]
+  },
+  {
+    "id": "geo_006",
+    "category": "rivers",
+    "question": "What is the longest river in the world?",
+    "expected": "The Nile River in Africa is generally considered the longest river in the world, stretching approximately 6,650 kilometres.",
+    "keywords": ["Nile", "Africa", "longest", "river", "kilometres"]
+  },
+  {
+    "id": "geo_007",
+    "category": "rivers",
+    "question": "Which river flows through the most countries in the world?",
+    "expected": "The Danube River flows through 10 countries, making it the river that passes through the most countries: Germany, Austria, Slovakia, Hungary, Croatia, Serbia, Romania, Bulgaria, Moldova, and Ukraine.",
+    "keywords": ["Danube", "Germany", "Austria", "Hungary", "Romania", "countries"]
+  },
+  {
+    "id": "geo_008",
+    "category": "rivers",
+    "question": "What is the largest river by discharge volume in the world?",
+    "expected": "The Amazon River in South America has the largest discharge volume of any river in the world, carrying about 20% of all freshwater that flows into the oceans.",
+    "keywords": ["Amazon", "South America", "discharge", "freshwater"]
+  },
+  {
+    "id": "geo_009",
+    "category": "mountains",
+    "question": "What is the highest mountain in the world?",
+    "expected": "Mount Everest is the highest mountain in the world, with a peak elevation of 8,849 metres above sea level. It is located in the Himalayas on the border of Nepal and Tibet.",
+    "keywords": ["Everest", "Himalayas", "Nepal", "Tibet", "8849", "highest"]
+  },
+  {
+    "id": "geo_010",
+    "category": "mountains",
+    "question": "What is the highest mountain in Africa?",
+    "expected": "Mount Kilimanjaro in Tanzania is the highest mountain in Africa, standing at 5,895 metres above sea level.",
+    "keywords": ["Kilimanjaro", "Tanzania", "Africa", "5895"]
+  },
+  {
+    "id": "geo_011",
+    "category": "mountains",
+    "question": "What is the longest mountain range in the world?",
+    "expected": "The Andes mountain range in South America is the longest continental mountain range in the world, stretching approximately 7,000 kilometres along the western coast.",
+    "keywords": ["Andes", "South America", "longest", "7000", "mountain range"]
+  },
+  {
+    "id": "geo_012",
+    "category": "oceans",
+    "question": "Which is the largest ocean on Earth?",
+    "expected": "The Pacific Ocean is the largest ocean on Earth, covering more than 165 million square kilometres and spanning more than half of the water surface of the world.",
+    "keywords": ["Pacific", "largest", "ocean", "165 million"]
+  },
+  {
+    "id": "geo_013",
+    "category": "oceans",
+    "question": "Which ocean is the smallest in the world?",
+    "expected": "The Arctic Ocean is the smallest of the world's five oceans, covering approximately 14.06 million square kilometres.",
+    "keywords": ["Arctic", "smallest", "ocean"]
+  },
+  {
+    "id": "geo_014",
+    "category": "countries",
+    "question": "Which country has the most natural lakes in the world?",
+    "expected": "Canada has the most natural lakes in the world, containing about 60% of the world's lakes.",
+    "keywords": ["Canada", "lakes", "60%"]
+  },
+  {
+    "id": "geo_015",
+    "category": "countries",
+    "question": "What is the largest country in the world by land area?",
+    "expected": "Russia is the largest country in the world by land area, covering approximately 17.1 million square kilometres.",
+    "keywords": ["Russia", "largest", "land area", "17"]
+  },
+  {
+    "id": "geo_016",
+    "category": "countries",
+    "question": "What is the smallest country in the world?",
+    "expected": "Vatican City is the smallest country in the world by both area and population, covering only about 0.44 square kilometres and located within Rome, Italy.",
+    "keywords": ["Vatican", "smallest", "Rome", "Italy"]
+  },
+  {
+    "id": "geo_017",
+    "category": "deserts",
+    "question": "What is the largest hot desert in the world?",
+    "expected": "The Sahara Desert in North Africa is the largest hot desert in the world, covering approximately 9.2 million square kilometres.",
+    "keywords": ["Sahara", "North Africa", "largest", "hot desert", "9.2 million"]
+  },
+  {
+    "id": "geo_018",
+    "category": "deserts",
+    "question": "What is the largest desert in the world overall?",
+    "expected": "Antarctica is the largest desert in the world overall, covering approximately 14.2 million square kilometres. It is a cold desert that receives very little precipitation.",
+    "keywords": ["Antarctica", "largest", "desert", "14.2 million", "cold"]
+  },
+  {
+    "id": "geo_019",
+    "category": "lakes",
+    "question": "What is the largest freshwater lake in the world by surface area?",
+    "expected": "Lake Superior, located on the border between the United States and Canada, is the largest freshwater lake in the world by surface area, covering about 82,103 square kilometres.",
+    "keywords": ["Lake Superior", "United States", "Canada", "freshwater", "largest"]
+  },
+  {
+    "id": "geo_020",
+    "category": "lakes",
+    "question": "What is the deepest lake in the world?",
+    "expected": "Lake Baikal in Siberia, Russia, is the deepest lake in the world, reaching a maximum depth of 1,642 metres. It also contains about 20% of the world's unfrozen surface fresh water.",
+    "keywords": ["Baikal", "Siberia", "Russia", "deepest", "1642"]
+  }
+]
