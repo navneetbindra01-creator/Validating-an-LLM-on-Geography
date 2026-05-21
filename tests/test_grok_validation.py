@@ -87,3 +87,36 @@ def test_two_word_answer_passes():
         f"  Validator scores: "
         + ", ".join(f"{v.name}={v.score:.3f}" for v in result.validations)
     )
+
+
+# ---------------------------------------------------------------------------
+# Test 4 — Wrong expected answer must FAIL
+# ---------------------------------------------------------------------------
+
+def test_wrong_expected_answer_fails():
+    """
+    Question:  Which continent contains the most desert area?
+    Expected:  France  (deliberately wrong — France is a country, not a continent,
+               and has no significant desert area)
+    Grok will answer correctly (Africa / Asia / Antarctica depending on definition).
+    The validators compare Grok's real response against the bogus expected answer
+    and should produce a composite score below the pass threshold → FAIL.
+    """
+    result = _process_item({
+        "id": "test_wrong_desert_continent",
+        "category": "deserts",
+        "question": "Which continent contains the most desert area?",
+        "expected": "France",
+        "keywords": ["France"],
+    })
+
+    assert result.error == "", (
+        f"Grok API error: {result.error}"
+    )
+    assert not result.passed, (
+        f"Expected FAIL but got PASS — validators did not reject the wrong answer\n"
+        f"  Grok response  : {result.response!r}\n"
+        f"  Composite score: {result.composite_score:.3f} (threshold: {result.pass_threshold})\n"
+        f"  Validator scores: "
+        + ", ".join(f"{v.name}={v.score:.3f}" for v in result.validations)
+    )
